@@ -35,7 +35,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gomoob</groupId>
   <artifactId>model</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>Gomoob Data Model library</name>
   <inceptionYear>2017</inceptionYear>
@@ -67,7 +67,6 @@
     <url>https://github.com/gomoob/java-model</url>
     <connection>scm:git:git://github.com/gomoob/java-model.git</connection>
     <developerConnection>scm:git:git@github.com:gomoob/java-model.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
   <developers>
     <developer>
@@ -158,7 +157,7 @@
         <configuration>
           <serverId>ossrh</serverId>
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>false</autoReleaseAfterClose>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
     </plugins>

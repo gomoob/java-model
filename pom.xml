@@ -35,7 +35,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gomoob</groupId>
   <artifactId>model</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Gomoob Data Model library</name>
   <inceptionYear>2017</inceptionYear>
@@ -67,6 +67,7 @@
     <url>https://github.com/gomoob/java-model</url>
     <connection>scm:git:git://github.com/gomoob/java-model.git</connection>
     <developerConnection>scm:git:git@github.com:gomoob/java-model.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
   <developers>
     <developer>
@@ -177,7 +178,7 @@
               <autoVersionSubmodules>true</autoVersionSubmodules>
               <useReleaseProfile>false</useReleaseProfile>
               <releaseProfiles>release</releaseProfiles>
-              <goals>deploy</goals>
+              <goals>deploy nexus-staging:release</goals>
             </configuration>
           </plugin>
           <plugin>

@@ -165,8 +165,10 @@
         </plugins>
     </build>
     <profiles>
+
+        <!-- see http://central.sonatype.org/pages/apache-maven.html -->
         <profile>
-            <id>pre-central-deployment</id>
+            <id>release</id>
             <build>
                 <plugins>
                     <plugin>

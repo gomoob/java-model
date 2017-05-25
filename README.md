@@ -38,6 +38,14 @@ class User extends AbstractEntity<Integer> implements IUser {
 }
 ```
 
+## Changelog
+
+All notable changes to this project will be documented in the
+[CHANGELOG.md](https://github.com/gomoob/java-model/blob/master/CHANGELOG.md) file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
+[Semantic Versioning](http://semver.org/).
+
 ## About Gomoob
 
 At [Gomoob](https://www.gomoob.com) we build high quality software with awesome Open Source frameworks everyday. Would 

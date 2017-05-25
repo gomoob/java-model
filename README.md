@@ -2,6 +2,8 @@
 
 > Gomoob Java Data Model library.
 
+[![Build Status](https://img.shields.io/travis/gomoob/java-model.svg?style=flat)](https://travis-ci.org/gomoob/java-model)
+
 The Gomoob Data Model library contains utility interfaces, abstract classes and classes used to create Java Data Models 
 / Domain Models quickly and using best practices.
 

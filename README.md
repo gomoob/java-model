@@ -21,6 +21,23 @@ Add the following dependency to you `pom.xml` file.
 </dependency>
 ```
 
+## Usage
+
+Read the JavaDoc (we're currently preparing a more user friendly documentation with tutorials) and use what you need,
+for example to create a simple `User` entity having an `Integer` identifier simply extends the `AbstractEntity`.
+
+```java
+package com.mycompany.myproject.model.user;
+
+import com.mycompany.myproject.model.IUser;
+
+import org.gomoob.model.AbstractEntity
+
+class User extends AbstractEntity<Integer> implements IUser {
+
+}
+```
+
 ## About Gomoob
 
 At [Gomoob](https://www.gomoob.com) we build high quality software with awesome Open Source frameworks everyday. Would 

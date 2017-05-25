@@ -7,6 +7,20 @@
 The Gomoob Data Model library contains utility interfaces, abstract classes and classes used to create Java Data Models 
 / Domain Models quickly and using best practices.
 
+## Setup
+
+### Maven
+
+Add the following dependency to you `pom.xml` file.
+
+```xml
+<dependency>
+    <groupId>org.gomoob</groupId>
+    <artifactId>model</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
 ## About Gomoob
 
 At [Gomoob](https://www.gomoob.com) we build high quality software with awesome Open Source frameworks everyday. Would 

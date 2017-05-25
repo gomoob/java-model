@@ -42,7 +42,7 @@
     <name>Gomoob Data Model library</name>
     <inceptionYear>2017</inceptionYear>
     <description>
-        The Gomoob Data Model library contains utility interface, abstract classes and classes used to create Java Data
+        The Gomoob Data Model library contains utility interfaces, abstract classes and classes used to create Java Data
         Models / Domain Models quickly and using best practices.
     </description>
     <licenses>

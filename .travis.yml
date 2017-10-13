@@ -1,4 +1,4 @@
 language: java
 jdk:
   - oraclejdk8
-script: mvn install -B
+script: mvn clean checkstyle:check findbugs:check install -B

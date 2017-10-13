@@ -160,6 +160,15 @@
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.17</version>
+        <configuration>
+            <configLocation>google_checks.xml</configLocation>
+            <failOnError>true</failOnError>
+        </configuration>
+       </plugin>
     </plugins>
   </build>
   <profiles>
@@ -235,10 +244,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.17</version>
-        <!--configuration>
-            <configLocation>${basedir}/checkstyle.xml</configLocation>
-            <enableRulesSummary>false</enableRulesSummary>
-        </configuration-->
+        <configuration>
+            <configLocation>google_checks.xml</configLocation>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

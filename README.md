@@ -17,7 +17,7 @@ Add the following dependency to you `pom.xml` file.
 <dependency>
     <groupId>org.gomoob</groupId>
     <artifactId>model</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 

@@ -23,47 +23,60 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.gomoob.model;
+package org.gomoob.model.translation;
 
-import java.io.Serializable;
+import org.gomoob.model.ITranslatableEntityWithCreationDate;
 
 /**
- * Interface which represents a Business Entity.
+ * Sample entity used to test the `AbstractEntity` class.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
- *
- * @param <IDT> the type of the technical identifier associated to this entity.
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  */
-public interface IEntity<IDT extends Serializable> {
+public class SampleTranslatableEntityWithCreationDate extends AbstractTranslatableEntityWithCreationDate<Integer>
+    implements ITranslatableEntityWithCreationDate<Integer> {
+    /**
+     * A sample attribute to get / set.
+     */
+    private Integer notTranslatableAttribute;
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to get a value.
-     *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * A sample attribute to get / set.
      */
-    public Object get(final String attributeName);
+    private String translatableAttribute;
 
     /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
+     * Gets the value of the notTranslatableAttribute attribute.
      *
-     * @return the technical identifier of the entity.
+     * @return The value of the notTranslatableAttribute attribute.
      */
-    public IDT getId();
+    public Integer getNotTranslatableAttribute() {
+        return this.notTranslatableAttribute;
+    }
 
     /**
-     * Sets the value of an attribute of this entity by reflection.
+     * Gets the value of the translatableAttribute attribute.
      *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
+     * @return The value of the translatableAttribute attribute.
      */
-    public void set(final String attributeName, final Object attributeValue);
+    public String getTranslatableAttribute() {
+        return this.translatableAttribute;
+    }
 
     /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
+     * Sets the value of the notTranslatableAttribute attribute.
      *
-     * @param id the technical identifier of the entity.
+     * @param city The value of the notTranslatableAttribute attribute to set.
      */
-    public void setId(final IDT id);
+    public void setNotTranslatableAttribute(final Integer notTranslatableAttribute) {
+        this.notTranslatableAttribute = notTranslatableAttribute;
+    }
+
+    /**
+     * Sets the value of the translatableAttribute attribute.
+     *
+     * @param city The value of the translatableAttribute attribute to set.
+     */
+    public void setTranslatableAttribute(final String translatableAttribute) {
+        this.translatableAttribute = translatableAttribute;
+    }
 }

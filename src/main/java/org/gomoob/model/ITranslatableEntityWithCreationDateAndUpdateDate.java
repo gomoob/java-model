@@ -26,44 +26,29 @@
 package org.gomoob.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
- * Interface which represents a Business Entity.
+ * Interface which represents a Translatable Business Entity having a both a creation date and an update date.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  *
  * @param <IDT> the type of the technical identifier associated to this entity.
  */
-public interface IEntity<IDT extends Serializable> {
+public interface ITranslatableEntityWithCreationDateAndUpdateDate<IDT extends Serializable>
+    extends ITranslatableEntityWithCreationDate<IDT> {
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
+     * Gets the update date of the entity.
      *
-     * @param attributeName the name of the attribute for which one to get a value.
-     *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * @return the update date of the entity.
      */
-    public Object get(final String attributeName);
+    public Date getUpdateDate();
 
     /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
+     * Sets the update date of the entity.
      *
-     * @return the technical identifier of the entity.
+     * @param updateDate the update date of the entity.
      */
-    public IDT getId();
-
-    /**
-     * Sets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
-     */
-    public void set(final String attributeName, final Object attributeValue);
-
-    /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @param id the technical identifier of the entity.
-     */
-    public void setId(final IDT id);
+    public void setUpdateDate(final Date updateDate);
 }

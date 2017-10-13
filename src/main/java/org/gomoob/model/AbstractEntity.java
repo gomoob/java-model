@@ -5,7 +5,7 @@
  *
  * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
  * following conditions are met:
- * 
+ *
  * * Redistributions of source code must retain the above copyright notice, this list of conditions and the following
  * disclaimer.
  *
@@ -32,7 +32,7 @@ import java.lang.reflect.Field;
  * Abstract class to be extended by Java entities mapped to a database.
  *
  * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
- * 
+ *
  * @param <IDT> the type of the technical identifier associated to this entity.
  */
 public abstract class AbstractEntity<IDT extends Serializable> implements IEntity<IDT> {
@@ -62,7 +62,7 @@ public abstract class AbstractEntity<IDT extends Serializable> implements IEntit
         field.setAccessible(true);
         Object attributeValue = null;
         try {
-            attributeValue = field.get(attributeName);
+            attributeValue = field.get(this);
         } catch (IllegalArgumentException iaex) {
             throw new RuntimeException(errorMessage, iaex);
         } catch (IllegalAccessException iaccex) {

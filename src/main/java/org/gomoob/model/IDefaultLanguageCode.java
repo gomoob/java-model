@@ -25,45 +25,33 @@
  */
 package org.gomoob.model;
 
-import java.io.Serializable;
-
 /**
- * Interface which represents a Business Entity.
+ * Interface used to manage getter and setter of a `defaultLanguageCode` attribute on an entity.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
- *
- * @param <IDT> the type of the technical identifier associated to this entity.
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  */
-public interface IEntity<IDT extends Serializable> {
+public interface IDefaultLanguageCode {
+    /**
+     * Gets the language code which was used when the entity was created. In most cases this is the language which was
+     * used by the user who created the entity.
+     *
+     * WARNING: The language code returned by this function is always expressed in uppercase even if you provided a
+     *          language code to the entity using a lower case syntax. Internally translatable entities always store
+     *          language codes in upper case.
+     *
+     * @return The default language code, the returned string is compliant with the ISO639-1 standard.
+     */
+    public String getDefaultLanguageCode();
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
+     * Sets the language code which was used when the entity was created. In most cases this is the language which was
+     * used by the user who created the entity.
      *
-     * @param attributeName the name of the attribute for which one to get a value.
+     * WARNING: The provided language code is not case sensitive, but, internally the language code which is used and
+     *          stored is ALWAYS converted in uppercase.
      *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * @param defaultLanguageCode The default language code to set, this string must be compliant with the
+     *        ISO639-1 standard.
      */
-    public Object get(final String attributeName);
-
-    /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @return the technical identifier of the entity.
-     */
-    public IDT getId();
-
-    /**
-     * Sets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
-     */
-    public void set(final String attributeName, final Object attributeValue);
-
-    /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @param id the technical identifier of the entity.
-     */
-    public void setId(final IDT id);
+    public void setDefaultLanguageCode(final String defaultLanguageCode);
 }

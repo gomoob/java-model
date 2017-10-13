@@ -25,45 +25,32 @@
  */
 package org.gomoob.model;
 
-import java.io.Serializable;
-
 /**
- * Interface which represents a Business Entity.
+ * Sample entity used to test the `AbstractEntity` class.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
- *
- * @param <IDT> the type of the technical identifier associated to this entity.
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  */
-public interface IEntity<IDT extends Serializable> {
+public class SampleEntity extends AbstractEntity<Integer> implements IEntity<Integer> {
+    /**
+     * A sample attribute to get / set.
+     */
+    private String a;
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
+     * Gets the value of the a attribute.
      *
-     * @param attributeName the name of the attribute for which one to get a value.
-     *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * @return The value of the a attribute.
      */
-    public Object get(final String attributeName);
+    public String getA() {
+        return this.a;
+    }
 
     /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
+     * Sets the value of the a attribute.
      *
-     * @return the technical identifier of the entity.
+     * @param a The value of the a attribute to set.
      */
-    public IDT getId();
-
-    /**
-     * Sets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
-     */
-    public void set(final String attributeName, final Object attributeValue);
-
-    /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @param id the technical identifier of the entity.
-     */
-    public void setId(final IDT id);
+    public void setA(final String a) {
+        this.a = a;
+    }
 }

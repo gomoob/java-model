@@ -23,47 +23,44 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.gomoob.model;
+package org.gomoob.model.translation;
 
-import java.io.Serializable;
+import org.gomoob.model.ITranslation;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
- * Interface which represents a Business Entity.
+ * Test case for the {@link Translation} class.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
- *
- * @param <IDT> the type of the technical identifier associated to this entity.
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  */
-public interface IEntity<IDT extends Serializable> {
+public class TranslationTest {
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to get a value.
-     *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * Test method for {@link Translation} entity creation.
      */
-    public Object get(final String attributeName);
+    @Test
+    public void testTranslationEntityCreation() {
+        ITranslation translation = new Translation();
+        translation.setLanguageCode("fr");
+        translation.setAttributeTranslation("city", "Londres");
+        translation.setAttributeTranslation("language", "Anglais");
+        translation.setAttributeTranslation("continent", "Europe");
 
-    /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @return the technical identifier of the entity.
-     */
-    public IDT getId();
+        try {
+            translation.getAttributeTranslation("unknownProperty");
+            Assert.fail("An IllegalStateException should be thrown !");
+        } catch (IllegalStateException e) {
+            Assert.assertEquals(
+                "No attribute named 'unknownProperty' has been found in the attribute translations !",
+                e.getMessage()
+            );
+        }
 
-    /**
-     * Sets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
-     */
-    public void set(final String attributeName, final Object attributeValue);
-
-    /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @param id the technical identifier of the entity.
-     */
-    public void setId(final IDT id);
+        Assert.assertSame("fr", translation.getLanguageCode());
+        Assert.assertTrue(translation.getAttributeTranslations().size() == 3);
+        Assert.assertSame("Londres", translation.getAttributeTranslation("city"));
+        Assert.assertSame("Anglais", translation.getAttributeTranslation("language"));
+        Assert.assertSame("Europe", translation.getAttributeTranslation("continent"));
+    }
 }

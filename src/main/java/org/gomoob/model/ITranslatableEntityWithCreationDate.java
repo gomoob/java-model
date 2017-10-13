@@ -26,44 +26,27 @@
 package org.gomoob.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
- * Interface which represents a Business Entity.
+ * Interface which represents a Translatable Business Entity having a creation date.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  *
  * @param <IDT> the type of the technical identifier associated to this entity.
  */
-public interface IEntity<IDT extends Serializable> {
+public interface ITranslatableEntityWithCreationDate<IDT extends Serializable> extends ITranslatableEntity<IDT> {
+    /**
+     * Gets the creation date of the entity.
+     *
+     * @return the creation date of the entity.
+     */
+    public Date getCreationDate();
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
+     * Sets the creation date of the entity.
      *
-     * @param attributeName the name of the attribute for which one to get a value.
-     *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * @param creationDate the creation date of the entity.
      */
-    public Object get(final String attributeName);
-
-    /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @return the technical identifier of the entity.
-     */
-    public IDT getId();
-
-    /**
-     * Sets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
-     */
-    public void set(final String attributeName, final Object attributeValue);
-
-    /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @param id the technical identifier of the entity.
-     */
-    public void setId(final IDT id);
+    public void setCreationDate(final Date creationDate);
 }

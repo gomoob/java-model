@@ -23,47 +23,44 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.gomoob.model;
+package org.gomoob.model.translation;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import org.gomoob.model.ITranslatableEntityWithCreationDateAndUpdateDate;
 
 /**
- * Interface which represents a Business Entity.
+ * Abstract class to extends to implement Business Translatable entities having both a creation date and an update
+ * date.
  *
- * @author Baptiste GAILLARD (baptiste.gaillard@gomoob.com)
+ * @author Simon BAUDRY (simon.baudry@gomoob.com)
  *
  * @param <IDT> the type of the technical identifier associated to this entity.
  */
-public interface IEntity<IDT extends Serializable> {
+public class AbstractTranslatableEntityWithCreationDateAndUpdateDate<IDT extends Serializable>
+        extends AbstractTranslatableEntityWithCreationDate<IDT>
+        implements ITranslatableEntityWithCreationDateAndUpdateDate<IDT> {
 
     /**
-     * Gets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to get a value.
-     *
-     * @return the value of the attribute having a name equals to <code>attributeName</code>.
+     * The update date of the entity.
      */
-    public Object get(final String attributeName);
+    private Date updateDate;
 
     /**
-     * Gets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @return the technical identifier of the entity.
+     * {@inheritDoc}
      */
-    public IDT getId();
+    @Override
+    public Date getUpdateDate() {
+        return this.updateDate;
+    }
 
     /**
-     * Sets the value of an attribute of this entity by reflection.
-     *
-     * @param attributeName the name of the attribute for which one to set a value.
-     * @param attributeValue the value of the attribute to set.
+     * {@inheritDoc}
      */
-    public void set(final String attributeName, final Object attributeValue);
+    @Override
+    public void setUpdateDate(final Date updateDate) {
+        this.updateDate = updateDate;
+    }
 
-    /**
-     * Sets the technical identifier of the entity. This is is most cases mapped to a primary key in database.
-     *
-     * @param id the technical identifier of the entity.
-     */
-    public void setId(final IDT id);
 }

@@ -4,7 +4,6 @@
 
 package org.gomoob.model;
 
-import org.gomoob.model.IEntityWithCreationDate;
 import org.json.JSONObject;
 
 /**
@@ -41,7 +40,7 @@ public interface IState extends IEntityWithCreationDate<String> {
      * Sets the message, in most cases this message is empty. The message is used to describe the state or to describe
      * the reason why this state has been created.
      *
-     * @param the message.
+     * @param message the message.
      */
     public void setMessage(final String message);
 
@@ -49,15 +48,14 @@ public interface IState extends IEntityWithCreationDate<String> {
      * Sets the generic metadata attached to this state, this is an array which can contain any keys or values. This is
      * useful to make the state usable in every application.
      *
-     * @param the JSON Object of metadata.
+     * @param metadata the JSON Object of metadata.
      */
     public void setMetadata(final JSONObject metadata);
 
     /**
      * Sets the name of the state.
      *
-     * @param the name of the state.
+     * @param name the name of the state.
      */
     public void setName(final String name);
-
 }
